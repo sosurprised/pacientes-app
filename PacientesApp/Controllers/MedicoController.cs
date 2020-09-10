@@ -7,9 +7,9 @@ using PacientesApp.Models;
 
 namespace PacientesApp.Controllers
 {
-    public class PacienteController : Controller
+    public class MedicoController : Controller
     {
-        private static List<Paciente> _banco = new List<Paciente>();
+        private static List<Medico> _banco = new List<Medico>();
 
         public IActionResult Index()
         {
@@ -24,14 +24,15 @@ namespace PacientesApp.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost]
-        public IActionResult Editar(Paciente paciente)
+        [HttpPost("editar")]
+        public IActionResult Editar(Medico paciente)
         {
             _banco[_banco.FindIndex(x => x.Codigo == paciente.Codigo)] = paciente;
             TempData["msg"] = "Paciente atualizado com sucesso";
             return RedirectToAction("Index");
         }
-        [HttpGet]
+
+        [HttpGet("editar")]
         public IActionResult Editar(int id)
         {
             var paciente = _banco.Find(x => x.Codigo == id);
@@ -39,14 +40,14 @@ namespace PacientesApp.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("cadastrar")]
         public IActionResult Cadastrar()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Cadastrar(Paciente paciente)
+        [HttpPost("cadastrar")]
+        public IActionResult Cadastrar(Medico paciente)
         {
             if (_banco.Any())
             {

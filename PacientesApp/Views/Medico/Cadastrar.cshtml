@@ -1,4 +1,4 @@
-﻿@model Paciente
+﻿@model Medico
 
 @{
 
@@ -6,11 +6,10 @@
 }
 
 <h1>Cadastrar</h1>
-<a asp-action="Index" asp-controller="Paciente">Pacientes</a>
 
-<mensagem texto="@TempData["msg"]" class="alert alert-danger"></mensagem>
+<msg texto="@TempData["msg"]"></msg>
 
-<form asp-action="cadastrar" asp-controller="paciente">
+<form asp-action="cadastrar" asp-controller="paciente" method="post">
     <partial name="_Form" />
 
     <input type="submit" value="Cadastrar" class="btn btn-outline-primary" />

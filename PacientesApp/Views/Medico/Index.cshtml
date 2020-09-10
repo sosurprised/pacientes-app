@@ -1,12 +1,10 @@
-﻿@model IList<Paciente>
+﻿@model IList<Medico>
 
 @{
     ViewData["Nome"] = "Index";
 }
 
 <h1>Pacientes</h1>
-
-<mensagem texto="@TempData["msg"]" class="alert alert-success"></mensagem>
 
 <a asp-action="cadastrar" asp-controller="paciente">Cadastrar</a>
 <table class="table">
