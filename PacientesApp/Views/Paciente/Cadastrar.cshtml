@@ -1,0 +1,18 @@
+﻿@model Paciente
+
+@{
+
+    ViewData["Nome"] = "Cadastrar";
+}
+
+<h1>Cadastrar</h1>
+<a asp-action="Index" asp-controller="Paciente">Pacientes</a>
+
+<mensagem texto="@TempData["msg"]" class="alert alert-danger"></mensagem>
+
+<form asp-action="cadastrar" asp-controller="paciente">
+    <partial name="_Form" />
+
+    <input type="submit" value="Cadastrar" class="btn btn-outline-primary" />
+    <a asp-action="index" asp-controller="paciente" class="btn btn-outline-dark">Pacientes</a>
+</form>
