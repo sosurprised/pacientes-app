@@ -5,13 +5,9 @@
     ViewData["Nome"] = "Cadastrar";
 }
 
-<h1>Cadastrar</h1>
+<titulo texto="Cadastro"></titulo>
 
-<msg texto="@TempData["msg"]"></msg>
-
-<form asp-action="cadastrar" asp-controller="paciente" method="post">
+<form asp-controller="medico" asp-action="cadastrar" >
     <partial name="_Form" />
-
     <input type="submit" value="Cadastrar" class="btn btn-outline-primary" />
-    <a asp-action="index" asp-controller="paciente" class="btn btn-outline-dark">Pacientes</a>
 </form>

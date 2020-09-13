@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace PacientesApp.TagHelpers
+namespace MedApp.TagHelpers
 {
-    public class MsgTagHelper: TagHelper
+    public class TituloTagHelper: TagHelper
     {
         public string Texto { get; set; }
 
@@ -14,8 +10,8 @@ namespace PacientesApp.TagHelpers
         {
             if (!string.IsNullOrEmpty(Texto))
             {
-                output.TagName = "div";
-                output.Attributes.SetAttribute("class", "alert alert-success");
+                output.TagName = "h4";
+                output.Attributes.SetAttribute("class", "text-primary");
                 output.Content.SetContent(Texto);
             }
         }

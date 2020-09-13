@@ -26,10 +26,10 @@ namespace PacientesApp.Models
 
         [Display(Name = "CRM")]
         [MaxLength(12), Required]
-        public int CRM { get; set; }
+        public string CRM { get; set; }
 
         [Display(Name = "Ano de formacao")]
-        [MaxLength(4), Required]
+        [Required]
         public int AnoFormacao { get; set; }
 
         [Display(Name = "Especializacao")]

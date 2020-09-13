@@ -4,9 +4,9 @@
     ViewData["Nome"] = "Editar";
 }
 
-<h1>Editar</h1>
+<titulo texto="Editar"></titulo>
 
-<form asp-controller="paciente" asp-action="editar">
+<form asp-controller="medico" asp-action="editar">
     <input asp-for="Codigo" />
 
     <partial name="_Form" />

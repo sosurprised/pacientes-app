@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PacientesApp.Models;
 
 namespace PacientesApp.Controllers
 {
+    [Route("medico")]
     public class MedicoController : Controller
     {
         private static List<Medico> _banco = new List<Medico>();
@@ -20,7 +19,6 @@ namespace PacientesApp.Controllers
         public IActionResult Remover(int id)
         {
             _banco.RemoveAt(_banco.FindIndex(x => x.Codigo == id));
-            TempData["msg"] = "Paciente removido";
             return RedirectToAction("Index");
         }
 
@@ -28,7 +26,6 @@ namespace PacientesApp.Controllers
         public IActionResult Editar(Medico paciente)
         {
             _banco[_banco.FindIndex(x => x.Codigo == paciente.Codigo)] = paciente;
-            TempData["msg"] = "Paciente atualizado com sucesso";
             return RedirectToAction("Index");
         }
 
@@ -58,8 +55,14 @@ namespace PacientesApp.Controllers
                 paciente.Codigo = 1;
             }
             _banco.Add(paciente);
-            TempData["msg"] = "Paciente cadastrado";
-            return RedirectToAction("Cadastrar");
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost("especializacao")]
+        public IActionResult FiltrarEspecializacao(string especializacao)
+        {
+            _banco = _banco.Where(x => x.Especializacao.ToString().ToLower() == especializacao.ToLower()).ToList();
+            return RedirectToAction("Index");
         }
     }
 }

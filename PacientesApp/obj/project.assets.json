@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\[FIAP]\\Thiago\\PacientesApp\\PacientesApp\\PacientesApp.csproj",
-      "projectName": "PacientesApp",
-      "projectPath": "C:\\Users\\User\\Documents\\[FIAP]\\Thiago\\PacientesApp\\PacientesApp\\PacientesApp.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Documents\\[FIAP]\\Thiago\\PacientesApp\\PacientesApp\\MedApp.csproj",
+      "projectName": "MedApp",
+      "projectPath": "C:\\Users\\User\\Documents\\[FIAP]\\Thiago\\PacientesApp\\PacientesApp\\MedApp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Documents\\[FIAP]\\Thiago\\PacientesApp\\PacientesApp\\obj\\",
       "projectStyle": "PackageReference",

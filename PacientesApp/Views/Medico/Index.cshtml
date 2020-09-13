@@ -4,60 +4,69 @@
     ViewData["Nome"] = "Index";
 }
 
-<h1>Pacientes</h1>
+<titulo texto="Médicos"></titulo>
 
-<a asp-action="cadastrar" asp-controller="paciente">Cadastrar</a>
-<table class="table">
-    <tr>
+<form asp-controller="medico" asp-action="especializacao">
+    <div class="form-group">
+        <label>Filtrar por especialização</label>
+        <input class="form-control" name="especializacao" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-sm btn-outline-primary">Filtrar</button>
+    </div>
+</form>
 
-        <th>Codigo</th>
-        <th>Nome</th>
-        <th>Sobrenome</th>
-        <th>Data Nascimento</th>
-        <th>CRM</th>
-        <th>Ano da formação</th>
-        <th>Especialização</th>
-
-    </tr>
-    @foreach (var item in Model)
-    {
+    <table class="table">
         <tr>
-            <td>@item.Codigo</td>
-            <td>@item.Nome</td>
-            <td>@item.Sobrenome</td>
-            <td>@item.DataNascimento</td>
-            <td>@item.CRM</td>
-            <td>@item.AnoFormacao</td>
-            <td>@item.Especializacao</td>
 
-            <td>
-                <a asp-action="editar" class="btn btn-sm btn-outline-primary" asp-route-id="@item.Codigo">Editar</a>
-                <button onclick="pacienteId.value= @item.Codigo" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
-                    Excluir
-                </button>
-            </td>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Data Nascimento</th>
+            <th>CRM</th>
+            <th>Ano da formação</th>
+            <th>Especialização</th>
+
         </tr>
-    }
-</table>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">Confirmação</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Deseja realmente excluir o paciente?
-            </div>
-            <div class="modal-footer">
-                <form asp-action="remover" asp-controller="paciente">
-                    <input type="hidden" name="id" id="pacienteId" />
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                    <button type="submit" class="btn btn-danger">Sim</button>
-                </form>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Codigo</td>
+                <td>@item.Nome</td>
+                <td>@item.Sobrenome</td>
+                <td>@item.DataNascimento</td>
+                <td>@item.CRM</td>
+                <td>@item.AnoFormacao</td>
+                <td>@item.Especializacao</td>
+
+                <td>
+                    <a asp-action="editar" class="btn btn-sm btn-outline-primary" asp-route-id="@item.Codigo">Editar</a>
+                    <button onclick="Codigo.value= @item.Codigo" type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Remoção de registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Deseja realmente excluir este registro?
+                </div>
+                <div class="modal-footer">
+                    <form asp-action="remover" asp-controller="medico" method="post">
+                        <input type="hidden" name="id" id="Codigo" />
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        <button type="submit" class="btn btn-danger">Sim</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
